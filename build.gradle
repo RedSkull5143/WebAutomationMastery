@@ -14,6 +14,7 @@ dependencies {
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.19.1'
 
     //lambook
+    implementation 'org.projectlombok:lombok:1.18.32'
     annotationProcessor 'org.projectlombok:lombok:1.18.32'
 
     //testNG
@@ -27,5 +28,8 @@ dependencies {
 }
 
 test {
-    useTestNG()
+    useTestNG(){
+        parallel="methods" //classes
+        threadCount=2
+    }
 }
