@@ -1,6 +1,7 @@
 package com.omshinde.webautomastery.components;
 
 import com.omshinde.webautomastery.pages.BasePage;
+import com.omshinde.webautomastery.pages.HomePage;
 import com.omshinde.webautomastery.pages.account.LoginPage;
 import com.omshinde.webautomastery.pages.account.ProfilePage;
 import org.openqa.selenium.WebDriver;
@@ -15,17 +16,25 @@ public class HeaderComponent extends BasePage {
     @FindBy(xpath = "//*[@id=\"shopify-section-header\"]/sticky-header/header/div/a[1]")
     private WebElement profileLoginEle;
 
+    @FindBy(xpath = "//*[@id=\"shopify-section-header\"]/sticky-header/header/nav/ul/li[1]/a/span")
+    private WebElement homeLinkEle;
+
    public HeaderComponent(WebDriver webDriver) {
         super(webDriver);
     }
 
     public LoginPage navToLogin() {
-       buttonAction.click(AccountLoginEle);
+        buttonAction.click(AccountLoginEle);
         return new LoginPage(webDriver);
     }
 
     public ProfilePage navToUserProfile() {
         buttonAction.click(profileLoginEle);
         return new ProfilePage(webDriver);
+   }
+
+   public HomePage navToHomePage(){
+       buttonAction.click(homeLinkEle);
+       return new HomePage(webDriver);
    }
 }

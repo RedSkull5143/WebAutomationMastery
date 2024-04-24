@@ -17,4 +17,5 @@ public class ProfilePage extends BasePage {
     public String getAccountDetails() {
         return webActions.getText(accountDetailsEle);
     }
+
 }
