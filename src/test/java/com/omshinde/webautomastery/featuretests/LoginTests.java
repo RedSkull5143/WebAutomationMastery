@@ -13,16 +13,11 @@ public class LoginTests extends BaseTest {
     @Test
     public void userIsAbleToLoginAndRedirectToHomePage() throws InterruptedException {
 
-        User user=new User("Om","Shinde","omshinde@gmail.com","OmShinde@1234");
-        HomePage homePage = new HomePage(getWebDriver());
-        LoginPage loginPage = homePage.getHeader().navToLogin();
-
-        loginPage.navToProfilePage();
+        User user=new User("Om","Shinde","omshnde@gmail.com","OmShinde@1234");
+        HomePage homePage=new HomePage(getWebDriver());
         HeaderComponent headerComponent=new HeaderComponent(getWebDriver());
+        LoginPage loginPage = homePage.getHeader().navToLogin();
+        loginPage.login(user);
         headerComponent.navToHomePage();
-        ProfilePage profilePage=new ProfilePage(getWebDriver());
-        String accountDetails=profilePage.getAccountDetails();
-
-        Assert.assertEquals(user.getFirstName(),"Om");
     }
 }

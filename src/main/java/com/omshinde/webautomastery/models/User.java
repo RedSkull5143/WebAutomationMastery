@@ -25,6 +25,7 @@ public class User {
                 .build();
     }
 
+
     public User userWithEmptyFirstName(){
         User user = this.init();
         user.setFirstName("");

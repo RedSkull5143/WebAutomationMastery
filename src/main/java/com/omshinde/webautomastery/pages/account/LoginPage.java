@@ -2,6 +2,7 @@ package com.omshinde.webautomastery.pages.account;
 
 import com.omshinde.webautomastery.models.User;
 import com.omshinde.webautomastery.pages.BasePage;
+import com.omshinde.webautomastery.pages.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,7 +25,7 @@ public class LoginPage extends BasePage {
         super(webDriver);
     }
 
-    public ProfilePage navToProfilePage(){
+    public ProfilePage login(User user){
         emailInputEle.sendKeys(user.getEmail());
         passwordInputEle.sendKeys(user.getPassword());
         signInBtnEle.click();
