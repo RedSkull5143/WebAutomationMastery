@@ -11,8 +11,17 @@ import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
     @Test
-    public void userIsAbleToLoginAndRedirectToHomePage() throws InterruptedException {
+    public void userIsAbleToLoginAndRedirectToHomePage() {
+        User user=new User("Om","Shinde","omshinde@gmail.com","OmShinde@1234");
+        HomePage homePage=new HomePage(getWebDriver());
+        HeaderComponent headerComponent=new HeaderComponent(getWebDriver());
+        LoginPage loginPage = homePage.getHeader().navToLogin();
+        loginPage.login(user);
+        headerComponent.navToHomePage();
+    }
 
+    @Test
+    public void verifyThatUserIsAbleToLoginWithIncorrectCrediantials(){
         User user=new User("Om","Shinde","omshnde@gmail.com","OmShinde@1234");
         HomePage homePage=new HomePage(getWebDriver());
         HeaderComponent headerComponent=new HeaderComponent(getWebDriver());

@@ -19,6 +19,9 @@ public class HeaderComponent extends BasePage {
     @FindBy(xpath = "//*[@id=\"shopify-section-header\"]/sticky-header/header/nav/ul/li[1]/a/span")
     private WebElement homeLinkEle;
 
+    @FindBy(xpath = "//*[@id=\"shopify-section-header\"]/sticky-header/header/div/details-modal/details/summary/span")
+    private WebElement searchBtnEle;
+
    public HeaderComponent(WebDriver webDriver) {
         super(webDriver);
     }
@@ -37,4 +40,10 @@ public class HeaderComponent extends BasePage {
        buttonAction.click(homeLinkEle);
        return new HomePage(webDriver);
    }
+
+   public SearchModal openSearchModal(){
+       buttonAction.click(searchBtnEle);
+       return new SearchModal(webDriver);
+   }
+
 }
