@@ -28,6 +28,8 @@ dependencies {
 }
 
 test {
+    outputs.upToDateWhen {false}
+    systemProperties System.properties
     useTestNG(){
         parallel="methods" //classes
         threadCount=2

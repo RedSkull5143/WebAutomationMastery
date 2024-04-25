@@ -1,5 +1,7 @@
 package com.omshinde.webautomastery;
 
+import com.omshinde.webautomastery.drivers.BrowserType;
+import com.omshinde.webautomastery.drivers.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -11,7 +13,8 @@ public class BaseTest {
 
     @BeforeMethod(alwaysRun = true)
     public synchronized void setUp(){
-        driverThreadLocal.set(new ChromeDriver());
+
+        driverThreadLocal.set(new DriverManager().create());
         launch();
         driverThreadLocal.get().manage().window().maximize();
     }
