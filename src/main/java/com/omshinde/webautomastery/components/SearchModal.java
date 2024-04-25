@@ -1,6 +1,6 @@
 package com.omshinde.webautomastery.components;
 
-import com.omshinde.webautomastery.pages.account.ProductsPage;
+import com.omshinde.webautomastery.pages.ProductsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,8 +14,8 @@ public class SearchModal extends HeaderComponent{
         super(webDriver);
     }
 
-    public ProductsPage input(){
-        textBox.typing(inputBoxEle,"Dress");
+    public ProductsPage input(String key){
+        textBox.typing(inputBoxEle, key);
         inputBoxEle.submit();
         return new ProductsPage(webDriver);
     }

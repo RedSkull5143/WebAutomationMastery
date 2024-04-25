@@ -25,6 +25,23 @@ public class User {
                 .build();
     }
 
+    public User userWithValidCredentials(){
+        return User.builder()
+                .firstName("Om")
+                .lastName("Shinde")
+                .email("omshinde@gmail.com")
+                .password("OmShinde@1234")
+                .build();
+    }
+
+    public User userWithInvalidCredentials(){
+        return User.builder()
+                .firstName("Om")
+                .lastName("Shinde")
+                .email("omshnde@gmail.com")
+                .password("OmShinde@1234")
+                .build();
+    }
 
     public User userWithEmptyFirstName(){
         User user = this.init();

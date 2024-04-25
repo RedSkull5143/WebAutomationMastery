@@ -1,7 +1,6 @@
 package com.omshinde.webautomastery.featuretests;
 
 import com.omshinde.webautomastery.BaseTest;
-import com.omshinde.webautomastery.components.HeaderComponent;
 import com.omshinde.webautomastery.models.User;
 import com.omshinde.webautomastery.pages.HomePage;
 import com.omshinde.webautomastery.pages.account.LoginPage;
@@ -12,21 +11,33 @@ import org.testng.annotations.Test;
 public class LoginTests extends BaseTest {
     @Test
     public void userIsAbleToLoginAndRedirectToHomePage() {
-        User user=new User("Om","Shinde","omshinde@gmail.com","OmShinde@1234");
+        //arrange
+        User user= User.builder().build().userWithValidCredentials();
         HomePage homePage=new HomePage(getWebDriver());
-        HeaderComponent headerComponent=new HeaderComponent(getWebDriver());
+
+        //act
         LoginPage loginPage = homePage.getHeader().navToLogin();
-        loginPage.login(user);
-        headerComponent.navToHomePage();
+        ProfilePage profilePage = loginPage.login(user);
+        String accountDetails = profilePage.getAccountDetails();
+
+        //assert
+        Assert.assertTrue(accountDetails.contains(user.getFirstName().toLowerCase()));
+        Assert.assertTrue(accountDetails.contains(user.getLastName().toLowerCase()));
     }
 
     @Test
     public void verifyThatUserIsAbleToLoginWithIncorrectCrediantials(){
-        User user=new User("Om","Shinde","omshnde@gmail.com","OmShinde@1234");
+        //arrange
+        User user= User.builder().build().userWithInvalidCredentials();
         HomePage homePage=new HomePage(getWebDriver());
-        HeaderComponent headerComponent=new HeaderComponent(getWebDriver());
+
+        //act
         LoginPage loginPage = homePage.getHeader().navToLogin();
         loginPage.login(user);
-        headerComponent.navToHomePage();
+        String errorMessage = loginPage.getErrorMessage();
+
+        //assert
+        Assert.assertTrue(errorMessage.contains("Incorrect email or password."));
+
     }
 }

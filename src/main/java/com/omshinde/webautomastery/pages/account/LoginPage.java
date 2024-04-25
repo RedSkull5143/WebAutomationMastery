@@ -21,6 +21,10 @@ public class LoginPage extends BasePage {
 
     @FindBy(xpath = "//*[@id=\"customer_login\"]/a[2]")
     private WebElement createAccountLinkEle;
+
+    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[@class='errors']//li")
+    private WebElement errorBoxEle;
+
     public LoginPage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -35,6 +39,10 @@ public class LoginPage extends BasePage {
     public RegistrationPage navToCreateAccount() {
         buttonAction.click(createAccountLinkEle);
         return new RegistrationPage(webDriver);
+    }
+
+    public String getErrorMessage(){
+        return webActions.getText(errorBoxEle);
     }
 
 }

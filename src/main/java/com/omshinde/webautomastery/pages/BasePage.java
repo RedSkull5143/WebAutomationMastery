@@ -3,6 +3,7 @@ package com.omshinde.webautomastery.pages;
 import com.omshinde.webautomastery.actions.ButtonAction;
 import com.omshinde.webautomastery.actions.TextBox;
 import com.omshinde.webautomastery.actions.WebActions;
+import com.omshinde.webautomastery.components.HeaderComponent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -18,5 +19,9 @@ public abstract class BasePage {
         this.buttonAction=new ButtonAction(webDriver);
         this.textBox=new TextBox(webDriver);
         this.webActions=new WebActions(webDriver);
+    }
+
+    public HeaderComponent getHeader() {
+        return new HeaderComponent(webDriver);
     }
 }
