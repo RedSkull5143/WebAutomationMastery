@@ -24,7 +24,7 @@ public class ChromeDriverManager {
     private ChromeOptions getHeadlessOptions() {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--no-sandbox");
-        chromeOptions.addArguments("--headless");
+//        chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("disable-gpu");
         chromeOptions.addArguments("--window-size=1300,1000");
         return chromeOptions;
