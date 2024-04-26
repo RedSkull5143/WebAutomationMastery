@@ -41,6 +41,3 @@ test {
     useTestNG()
 }
 
-tasks.test {
-    doNotTrackState()
-}
