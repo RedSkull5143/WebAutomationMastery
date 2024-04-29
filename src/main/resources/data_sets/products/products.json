@@ -1,0 +1,10 @@
+{
+  "skiesProduct": {
+    "name": "72Skis",
+    "originalPrice": "Rs.324.00",
+    "salePrice": "Rs.225.00",
+    "label": "Sale",
+    "seller": "K2",
+    "sizes": ["167cm"]
+  }
+}
