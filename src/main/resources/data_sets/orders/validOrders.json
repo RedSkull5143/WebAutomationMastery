@@ -1,0 +1,22 @@
+{
+  "userWithOneOrder": {
+    "orderId": "123",
+    "orderDetails": {
+      "name": "72Skis",
+      "originalPrice": "Rs.324.00",
+      "salePrice": "Rs.225.00",
+      "label": "Sale",
+      "seller": "K2",
+      "sizes": ["167cm"]
+    },
+    "address": {
+      "name": "omshinde",
+      "streetname": "avenuestreet",
+      "district": "kolhapur",
+      "city": "kolhapur",
+      "state": "maharashtra",
+      "country": "india",
+      "pincode": "416505"
+    }
+  }
+}
