@@ -1,6 +1,7 @@
 package com.omshinde.webautomastery.models;
 
 import com.github.javafaker.Faker;
+import io.qameta.allure.Step;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,6 +16,7 @@ public class User {
     private String email;
     private String password;
 
+    @Step("Generating User Data")
     public User init(){
         Faker dataFaker=new Faker();
         return User.builder()

@@ -8,8 +8,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
-    private ThreadLocal<WebDriver> driverThreadLocal=new ThreadLocal<>();
-    private final String URL="https://web-playground.ultralesson.com/";
+    public static ThreadLocal<WebDriver> driverThreadLocal=new ThreadLocal<>();
+    public static final String URL="https://web-playground.ultralesson.com/";
 
     @BeforeMethod(alwaysRun = true)
     public synchronized void setUp(){

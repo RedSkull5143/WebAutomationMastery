@@ -15,19 +15,25 @@ import org.testng.annotations.Test;
 
 public class SearchProduct extends BaseTest {
     @Test
-    public void userIsAbleToSearchProductAfterLogin() {
+    public void userIsAbleToSearchProductAfterLogin() throws InterruptedException {
         //arrange
         User user= User.builder().build().userWithValidCredentials();
         SearchContext searchContext=SearchContext.builder().build().init();
 
         //act
         HomePage homePage=new HomePage(getWebDriver());
+        Thread.sleep(2000);
         LoginPage loginPage = homePage.getHeader().navToLogin();
+        Thread.sleep(2000);
         ProfilePage profilePage = loginPage.login(user);
+        Thread.sleep(2000);
         profilePage.getHeader().openSearchModal();
+        Thread.sleep(2000);
 
         SearchModal searchModal=new SearchModal(getWebDriver());
+        Thread.sleep(2000);
         ProductsPage productsPage = searchModal.input(searchContext.getKey());
+        Thread.sleep(2000);
 
         int resultsCount = productsPage.getResultsCount();
 

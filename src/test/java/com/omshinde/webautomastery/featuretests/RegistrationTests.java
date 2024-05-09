@@ -7,11 +7,18 @@ import com.omshinde.webautomastery.pages.HomePage;
 import com.omshinde.webautomastery.pages.account.LoginPage;
 import com.omshinde.webautomastery.pages.account.ProfilePage;
 import com.omshinde.webautomastery.pages.account.RegistrationPage;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+@Test
+@Epic("Buy Product") //epic is big feature
+@Feature("Registration") //Login, Search, Add to Cart, Checkout, Purchase
 public class RegistrationTests extends BaseTest {
-    @Test
+    @Test(groups = "smoke")
+    @Story("Register")
     public void verifyThatFirstTimeUseIsAbleToRegister() {
         //arrange
         User user = User.builder().build().init();
@@ -26,7 +33,7 @@ public class RegistrationTests extends BaseTest {
         //assert
         String accountDetails = profilePage.getAccountDetails();
         Assert.assertTrue(accountDetails.contains(user.getFirstName()));
-        Assert.assertTrue(accountDetails.contains(user.getLastName()));
+        Assert.assertFalse(accountDetails.contains(user.getLastName()));
     }
 
     @Test

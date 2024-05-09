@@ -4,6 +4,7 @@ import com.omshinde.webautomastery.pages.BasePage;
 import com.omshinde.webautomastery.pages.HomePage;
 import com.omshinde.webautomastery.pages.account.LoginPage;
 import com.omshinde.webautomastery.pages.account.ProfilePage;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,11 +27,13 @@ public class HeaderComponent extends BasePage {
         super(webDriver);
     }
 
+    @Step("Nagivate to Login")
     public LoginPage navToLogin() {
         buttonAction.click(AccountLoginEle);
         return new LoginPage(webDriver);
     }
 
+    @Step("Navigate to Profile")
     public ProfilePage navToUserProfile() {
         buttonAction.click(profileLoginEle);
         return new ProfilePage(webDriver);
